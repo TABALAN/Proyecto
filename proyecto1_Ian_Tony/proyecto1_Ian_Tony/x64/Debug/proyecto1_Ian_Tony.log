@@ -1,0 +1,10 @@
+﻿  banco.cpp
+  pago.cpp
+  prestamo.cpp
+  prestamoAutomovil.cpp
+  prestamoHipotecario.cpp
+  prestamoPersonal.cpp
+  proyecto1_Ian_Tony.cpp
+  Generando código...
+  AssemblyInfo.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
+  proyecto1_Ian_Tony.vcxproj -> C:\Users\Tony Alexander\Documents\Segundo Semestre\Programación Avanzada\Práctica\Proyectos\Proyecto1\proyecto1_Ian_Tony\x64\Debug\proyecto1_Ian_Tony.exe
