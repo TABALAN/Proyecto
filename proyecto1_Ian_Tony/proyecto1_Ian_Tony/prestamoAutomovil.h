@@ -14,5 +14,6 @@ public:
 
 	void calcularInteres() override;
 	void mostrarInformacion() override;
+	void abonarMonto() override;
 };
 

@@ -7,6 +7,5 @@
 #ifndef PCH_H
 #define PCH_H
 
-// agregue aquí los encabezados que desea precompilar
 
 #endif //PCH_H

@@ -1,48 +1,47 @@
 #include "pch.h"
 #include "prestamoPersonal.h"
+#include "prestamo.h"
 #include "banco.h"
-#include <list>
 #include <string>
 #include <iostream>
 #include <ctime>
 using namespace std;
 
-prestamoPersonal::prestamoPersonal() {} //Constructor de la clase
-
 //Instancia de banco para realizar acciones en torno a la informacion que posee
 banco accionBanco;
-prestamo accionPrestamo;
 
 void prestamoPersonal::mostrarInformacion()
 {
 	int noPrestamo;
-	bool encontrado = false;
 	cout << "------------------------ Lista de prestamos -----------------------------" << endl;
-	accionPrestamo.getListaPagos();
-	cout << "-----------------------------------------------------" << endl;
-	while (encontrado == false) {
-		cout << "Por favor ingrese el numero del prestamo que desea consultar: " << endl;
+	accionBanco.mostrarListaPrestamos();
+	cout << "-------------------------------------------------------------------------------------------------------" << endl;
+	cout << "Ingresa el numero de prestamo que desea consultar (indice de la lista): " << endl;
+	do
+	{
 		cin >> noPrestamo;
-
-		//Buscar dentro de la lista específicada en el get, en un rango de begin a end
-		auto it = find(accionPrestamo.getListaPagos().begin(), accionPrestamo.getListaPagos().end(), noPrestamo);
-
-		if (it != accionPrestamo.getListaPagos().end()) {
-			cout << "Elemento encontrado... " << endl;
-			encontrado = true;
-		}
-		else {
-			cout << "Elemento no encontrado" << endl;
-		}
-	}
+	} while (noPrestamo < 0 && noPrestamo > accionBanco.getCapacidadArreglo());
 	accionBanco.getPrestamoPorNumero(noPrestamo);
 }
 
 void prestamoPersonal::calcularInteres()
 {
+	int Noprestamo;
+	accionBanco.getListaUnTipo("Personal");
+	cout << "---------------------------------------------------------" << endl;
+	cout << "Ingrese el numero de prestamo que desea calcular: " << endl;
+	bool validacion = true;
+	while (validacion == true)
+	{
+		cin >> Noprestamo;
+		if (Noprestamo < accionBanco.getCapacidadArreglo() && Noprestamo > accionBanco.getCapacidadArreglo())
+		{
+			cout << "El numero no es valido, ingrese de nuevo. " << endl;
+		}
+	}
 	double resultadoInteres;
 	double interesPrestamoPersonal = 0.0685;
-	double saldoPrestamoPersonal = accionPrestamo.getSaldoPrincipal();
+	double saldoPrestamoPersonal = accionBanco.getMontoInicialPrestamo(Noprestamo-1);
 	int numeroDiasTranscurridos;
 
 	//Obtener la fecha actual de la computadora
@@ -58,6 +57,34 @@ void prestamoPersonal::calcularInteres()
 
 	cout << "--------------------------------------------------------------------------" << endl;
 	cout << "Calculando interes... " << endl;
-	cout << "El interes del prestamo " << accionPrestamo.getidentificadorPrestamo() << "es: " << resultadoInteres << endl;
+	cout << "El interes del prestamo " << accionBanco.getNoPrestamo(Noprestamo-1) << "es: " << resultadoInteres << endl;
 	cout << "--------------------------------------------------------------------------" << endl;
+}
+
+void prestamoPersonal::abonarMonto()
+{
+	int numeroPrestamoPersonal;
+	double monto;
+	double nuevoSaldo;
+	cout << "-----------------------------------LISTA PRESTAMOS PERSONALES-----------------------------------" << endl;
+	accionBanco.getListaUnTipo("Personal");
+	cout << "--------------------------------------------------------------------------" << endl;
+	cout << "Ingrese el numero de la cuenta que desea abonar: " << endl;
+	do
+	{
+		cin >> numeroPrestamoPersonal;
+	} while (numeroPrestamoPersonal < 0 && numeroPrestamoPersonal > accionBanco.getCapacidadArreglo());
+
+	double saldoDeCuenta = accionBanco.getMontoInicialPrestamo(numeroPrestamoPersonal-1);
+
+	cout << "Ingrese el monto a depositar (No ingrese un numero menor a cero o mayor al monto): " << endl;
+	do
+	{
+		cin >> monto;
+	} while (monto < 0 && monto > saldoDeCuenta);
+
+	cout << "---------------------------------------------------------------------------------" << endl;
+	cout << "Realizando pago......." << endl;
+	nuevoSaldo = saldoDeCuenta - monto;
+	accionBanco.setNuevoMontoPrestamo(numeroPrestamoPersonal - 1, nuevoSaldo);
 }

@@ -1,10 +1,13 @@
 ﻿  banco.cpp
-  pago.cpp
-  prestamo.cpp
   prestamoAutomovil.cpp
-  prestamoHipotecario.cpp
   prestamoPersonal.cpp
+C:\Users\Tony Alexander\Documents\Segundo Semestre\Programación Avanzada\Práctica\Proyectos\Proyecto1\proyecto1_Ian_Tony\proyecto1_Ian_Tony\prestamoAutomovil.cpp(12,10): error C2259: "prestamo": no se puede crear una instancia de una clase abstract
+C:\Users\Tony Alexander\Documents\Segundo Semestre\Programación Avanzada\Práctica\Proyectos\Proyecto1\proyecto1_Ian_Tony\proyecto1_Ian_Tony\prestamoPersonal.cpp(49,25): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
   proyecto1_Ian_Tony.cpp
+C:\Users\Tony Alexander\Documents\Segundo Semestre\Programación Avanzada\Práctica\Proyectos\Proyecto1\proyecto1_Ian_Tony\proyecto1_Ian_Tony\proyecto1_Ian_Tony.cpp(18,23): error C2259: "prestamoAutomovil": no se puede crear una instancia de una clase abstract
+C:\Users\Tony Alexander\Documents\Segundo Semestre\Programación Avanzada\Práctica\Proyectos\Proyecto1\proyecto1_Ian_Tony\proyecto1_Ian_Tony\proyecto1_Ian_Tony.cpp(19,25): error C2259: "prestamoHipotecario": no se puede crear una instancia de una clase abstract
+C:\Users\Tony Alexander\Documents\Segundo Semestre\Programación Avanzada\Práctica\Proyectos\Proyecto1\proyecto1_Ian_Tony\proyecto1_Ian_Tony\proyecto1_Ian_Tony.cpp(20,22): error C2259: "prestamoPersonal": no se puede crear una instancia de una clase abstract
+C:\Users\Tony Alexander\Documents\Segundo Semestre\Programación Avanzada\Práctica\Proyectos\Proyecto1\proyecto1_Ian_Tony\proyecto1_Ian_Tony\proyecto1_Ian_Tony.cpp(14,1): error C1075: "{": no se encontró ningún token coincidente
   Generando código...
-  AssemblyInfo.obj : se encontró un módulo MSIL; vinculación incremental deshabilitada para MSIL; ejecutando vínculo completo
-  proyecto1_Ian_Tony.vcxproj -> C:\Users\Tony Alexander\Documents\Segundo Semestre\Programación Avanzada\Práctica\Proyectos\Proyecto1\proyecto1_Ian_Tony\x64\Debug\proyecto1_Ian_Tony.exe
+C:\Users\Tony Alexander\Documents\Segundo Semestre\Programación Avanzada\Práctica\Proyectos\Proyecto1\proyecto1_Ian_Tony\proyecto1_Ian_Tony\banco.cpp(100,1): warning C4715: 'banco::getNoPrestamo': no todas las rutas de acceso de control devuelven un valor
+C:\Users\Tony Alexander\Documents\Segundo Semestre\Programación Avanzada\Práctica\Proyectos\Proyecto1\proyecto1_Ian_Tony\proyecto1_Ian_Tony\banco.cpp(69,1): error C4716: 'banco::getPrestamoPorNumero': debe devolver un valor

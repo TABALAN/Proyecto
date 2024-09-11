@@ -6,10 +6,10 @@
 using namespace std;
 
 //Constructor vacío
-prestamo::prestamo() {}
+prestamo::prestamo() : montoInicial(0), saldoPrincipal(0), tasaInteres(0), plazo(0) {}
 
 //Definir estructura de los métodos a sobreescribir en cada clase hija
 void prestamo::calcularInteres() {}
 void prestamo::mostrarInformacion() {}
-void prestamo::abonarMonto(double monto) {}
+void prestamo::abonarMonto() {}
 void prestamo::registrarPagoInteres(double monto) {}
